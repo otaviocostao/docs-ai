@@ -1,0 +1,18 @@
+.header-area{
+    border-bottom: 1px solid #d1d1d1;
+    width: 100%;
+}
+
+.navbar-content{
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 24px;
+}
+
+.docsai-name{
+    font-weight: bold;
+    color: #0267eb;
+    
+}
