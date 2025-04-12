@@ -1,0 +1,28 @@
+.info-area{
+    width: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.h1-area{
+    font-size: 23px;
+    color: var(--font-color-black);
+}
+
+.paragraph-area{
+    color: var(--font-color-gray);
+    font-size: 20px;
+}
+
+.area-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.area-icon img{
+    width: 60px;
+    margin: 15px;
+}
