@@ -8,11 +8,22 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 24px;
+    padding: 15px 24px;
+}
+
+.docsai-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.docsai-logo img{
+    width: 40px;
+    padding-right: 5px;
 }
 
 .docsai-name{
     font-weight: bold;
     color: #0267eb;
-    
+    margin: 0px;
 }

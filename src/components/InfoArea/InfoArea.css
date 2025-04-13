@@ -7,6 +7,8 @@
 }
 
 .h1-area{
+    width: 100%;
+    height: auto;
     font-size: 23px;
     color: var(--font-color-black);
 }
@@ -14,15 +16,4 @@
 .paragraph-area{
     color: var(--font-color-gray);
     font-size: 20px;
-}
-
-.area-icon{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.area-icon img{
-    width: 60px;
-    margin: 15px;
 }

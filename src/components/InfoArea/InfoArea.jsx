@@ -1,17 +1,15 @@
 import React from 'react'
 import './InfoArea.css'
-import Icon from '../../assets/icon.svg'
+
 const InfoArea = () => {
   return (
     <div className='info-area'>
-        <div className='area-icon'>
-            <img src={Icon} alt="Ícone" />
-        </div>
+
         <div className='h1-area'>
             <h1>Gere a documentação do seu projeto com IA</h1>
         </div>
         <div className='paragraph-area'>
-            <p>Faça upload do arquivo ou cole o link do repositório no GitHub, e use nossa IA para analisar o código e gerar a documentação em segundos.</p>
+            <p>Faça upload do arquivo ou cole o link do repositório no GitHub e use nossa IA para analisar o código e gerar a documentação em segundos.</p>
         </div>
     </div>
   )
