@@ -1,0 +1,41 @@
+.upload-mode-area{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    border-radius: 5px;
+    background-color: var(--background-gray);
+    margin: 20px 0px 20px 0px;
+}
+
+.upload-arquivo,
+.link-github{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 49%;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--background-gray);
+    font-size: 10.5pt;
+    color: var(--font-color-gray);
+    font-weight: 540;
+    cursor: pointer;
+}
+
+.upload-arquivo svg{
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+.link-github svg{
+    width: 20px;
+    margin-right: 5px;
+}
+
+.upload-arquivo{
+    background-color: #ffff;
+    color: var(--font-color-black);
+}

@@ -1,5 +1,5 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: system-ui, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   padding: 0;
@@ -7,4 +7,10 @@
 
   --font-color-black: #020817;
   --font-color-gray: #64748b;
+  --background-gray: #f1f5f9;
+  --background-icons-blue: #2463eb1a;
+  --background-blue: #f1f5f980;
+  --default-border-radius: 5px;
+  --border-color: #e4e4e4;
+  --border-blue: #2463eb2d;
 }
