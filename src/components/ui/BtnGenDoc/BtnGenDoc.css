@@ -1,0 +1,18 @@
+.btn-generate-doc{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d1d1d1;
+    padding: 8px 16px;
+    font-size: 14px;
+    color: var(--font-color-black);
+    border-radius: var(--default-border-radius);
+    cursor: pointer;
+    background-color: var(--color-blue);
+    color: #ffff;
+}
+
+.btn-generate-doc:hover{
+    transition: 0.5s;
+    background-color: var(--color-blue-hover);
+}

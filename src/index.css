@@ -13,5 +13,6 @@
   --default-border-radius: 5px;
   --border-color: #e4e4e4;
   --border-blue: #2463eb2d;
-  --color-blue: #005eff;
+  --color-blue: #2463eb;
+  --color-blue-hover: #356ee9;
 }
