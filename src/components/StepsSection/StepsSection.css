@@ -1,0 +1,46 @@
+.steps-section-area{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 48px 0px;
+    background-color: var(--background-gray);
+    margin-top: 80px;
+}
+
+.step-get-documentation,
+.step-ai-analysis,
+.step-upload{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.documentation-step-icon,
+.ai-step-icon,
+.upload-step-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-icons-blue);
+    padding: 12px;
+    border-radius: 100px;
+    font-size: 25px;
+    color: var(--color-blue);
+}
+
+.h3-steps{
+    color: var(--font-color-black);
+    font-weight: 500;
+    font-size: 18px;
+    margin: 10px 0px 0px 0px;
+}
+
+.paragraph-steps{
+    font-size: 14px;
+    color: var(--font-color-gray);
+    padding: 0px;
+    margin: 0px;
+}
