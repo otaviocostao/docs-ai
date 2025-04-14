@@ -32,7 +32,7 @@
     align-items: center;
     justify-content: center;
     padding: 16px;
-    color: #005eff;
+    color: var(--color-blue);
     border-radius: 100px;
     font-size: 18pt;
     font-weight: bolder;
