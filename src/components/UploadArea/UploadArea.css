@@ -1,0 +1,7 @@
+.upload-area{
+    width: 60%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+}
