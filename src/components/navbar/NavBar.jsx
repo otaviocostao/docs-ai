@@ -1,7 +1,7 @@
 import React from 'react'
 import './NavBar.css'
-import BtnGithub from '../ui/btnGithub/BtnGithub'
 import Icon from '../../assets/icon.svg'
+import BtnLogin from '../ui/BtnLogin/BtnLogin'
 
 const NavBar = () => {
   return (
@@ -11,7 +11,7 @@ const NavBar = () => {
               <img src={Icon} />
               <h2 className='docsai-name'>DocsAI</h2>
             </div>
-            <BtnGithub />
+            <BtnLogin />
         </div>
     </header>
   )

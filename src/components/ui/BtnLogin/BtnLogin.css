@@ -1,0 +1,17 @@
+.btn-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d1d1d1;
+    padding: 6px 12px;
+    font-size: 11pt;
+    color: var(--font-color-black);
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ffff;
+}
+
+.btn-login:hover{
+    transition: 0.5s;
+    background-color: #f7f7f7;
+}

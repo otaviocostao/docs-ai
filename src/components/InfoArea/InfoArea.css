@@ -9,8 +9,12 @@
 .h1-area{
     width: 100%;
     height: auto;
-    font-size: 23px;
     color: var(--font-color-black);
+}
+
+.h1-area h1{
+    margin: 50px 0px 0px 0px ;
+    font-size: 45px;
 }
 
 .paragraph-area{
