@@ -1,7 +1,6 @@
 import React from 'react'
 import './UploadMode.css'
 import { BsFileEarmarkArrowUp, BsGithub } from "react-icons/bs";
-import { Github } from "lucide-react";
 
 const UploadMode = ({onSelect, selected}) => {
   return (
