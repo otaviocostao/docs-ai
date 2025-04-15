@@ -1,20 +1,27 @@
 import './App.css'
-import FooterArea from './components/FooterArea/FooterArea'
-import InfoArea from './components/InfoArea/InfoArea'
-import NavBar from './components/navbar/NavBar'
-import StepsSection from './components/StepsSection/StepsSection'
-import UploadArea from './components/UploadArea/UploadArea'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Home from './pages/Home/Home';
+import Login from './pages/Login/Login'
 
 function App() {
 
   return (
-    <>
-    <NavBar />
-    <InfoArea />
-    <UploadArea />
-    <StepsSection />
-    <FooterArea />
-    </>
+    <Router>
+      <Routes>
+        <Route 
+            path="/" 
+            element={
+              <Home/> 
+            } 
+          />
+        <Route 
+            path="/login" 
+            element={
+              <Login />
+            } 
+          />
+      </Routes>
+    </Router>
   )
 }
 

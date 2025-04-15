@@ -1,0 +1,89 @@
+.login-content{
+    width: 25%;
+    height: 100%;   
+    background-color: #ffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-right: 40px;
+}
+
+.form-login{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.text-area{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    padding: 3px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.input-login{
+    width: 100%;
+    padding: 10px 12px;
+    margin: 2px 0px 2px 0px;
+    background-color: #ffff;
+    border-radius: var(--default-border-radius);
+    border: 1px solid var(--border-color);
+    font-size: 14px;
+    box-sizing: border-box;
+    color: var(--font-color-black);
+}
+
+.area-forget-pass{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 3px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    color: var(--color-blue);
+}
+
+.forget-pass{
+    font-size: 14px;
+}
+
+.btn-entrar{
+    width: 97%;
+    padding: 10px 12px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: var(--default-border-radius);
+    color: #ffff;
+    font-size: 14px;
+    background-color: var(--color-blue);
+    cursor: pointer;
+}
+
+.btn-entrar:hover{
+    background-color: var(--color-blue-hover);
+}
+
+.area-signup{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 3px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    color: var(--font-color-black);
+    font-size: 14px;
+}
+
+.area-signup a{
+    margin-left: 5px;
+}

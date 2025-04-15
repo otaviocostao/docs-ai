@@ -1,3 +1,7 @@
+.area-btnlogin{
+    text-decoration: none;
+}
+
 .btn-login{
     display: flex;
     align-items: center;
