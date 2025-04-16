@@ -1,24 +1,108 @@
-# Logs
-logs
-*.log
+# =========================================================================
+# Arquivo .gitignore Combinado para Monorepo (Frontend + Backend + Comum)
+# =========================================================================
+
+# -------------------------------------------------------------------------
+# Arquivos Comuns Gerados pelo Sistema Operacional
+# -------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# -------------------------------------------------------------------------
+# Arquivos e Pastas Comuns de Editores/IDEs
+# -------------------------------------------------------------------------
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# VS Code
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json # Manter se quiser compartilhar config de debug
+
+# Eclipse/STS
+.settings/
+.classpath
+.project
+.factorypath
+.springBeans
+.sts4-cache
+.apt_generated/ # Também relacionado ao Java Annotation Processing
+
+# NetBeans
+nbproject/private/
+nbbuild/
+# Pasta 'dist' do NetBeans - Conflita com a 'dist' do frontend,
+# mas como 'dist/' já está listada abaixo (frontend), esta é redundante.
+# /nbdist/
+.nb-gradle/
+
+# Outros Editores/Ferramentas
+*.sw?
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# -------------------------------------------------------------------------
+# Dependências e Builds - Node.js / Frontend (React/Vite)
+# (Regras aplicadas principalmente dentro de frontend/)
+# -------------------------------------------------------------------------
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Arquivos de Log - Node.js
+logs/ # Pasta genérica de logs
+*.log # Arquivos de log genéricos
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Arquivos de Cache/Temporários do Gerenciador de Pacotes
+# Se aplicável (ex: .pnpm-store/, .yarn/cache) - adicione se usar
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# -------------------------------------------------------------------------
+# Dependências e Builds - Java / Backend (Spring Boot/Maven/Gradle)
+# (Regras aplicadas principalmente dentro de backend/)
+# -------------------------------------------------------------------------
+# Maven
+target/
+# Allow Maven wrapper, important for consistent builds
+!.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+build/
+.gradle/
+# Allow Gradle wrapper, important for consistent builds
+!gradle/wrapper/gradle-wrapper.jar
+
+# Arquivos gerados pelo Spring Boot Initializr (se não quiser)
+HELP.md
+
+# -------------------------------------------------------------------------
+# Arquivos de Ambiente (NUNCA comitar credenciais!)
+# -------------------------------------------------------------------------
+.env
+.env.*.local
+.env.local
+
+# -------------------------------------------------------------------------
+# Arquivos de Cobertura de Teste
+# -------------------------------------------------------------------------
+coverage/
+# Adicione outros padrões se usar ferramentas diferentes
+
+# =========================================================================
+# Fim do Arquivo .gitignore
+# =========================================================================
