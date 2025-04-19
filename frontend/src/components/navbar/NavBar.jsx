@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import './NavBar.css'
 import Icon from '../../assets/icon.svg'
-import BtnLogin from '../ui/BtnLogin/BtnLogin'
 
 const NavBar = () => {
 
@@ -12,7 +11,6 @@ const NavBar = () => {
               <img src={Icon}/>
               <h2 className='docsai-name'>DocsAI</h2>
             </div>
-            <BtnLogin />
         </div>
     </header>
   )
