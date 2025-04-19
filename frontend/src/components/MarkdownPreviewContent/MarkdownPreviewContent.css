@@ -1,0 +1,64 @@
+.markdownpreview-area{
+    width: 45%;
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--default-border-radius);
+    margin: 10px 15px 0px 15px;
+}
+
+.markdown-content{
+    width: 100%;
+    min-height: 88vh;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    box-sizing: border-box;
+    border: 1px solid var(--border-color);
+    border-radius: var(--default-border-radius);
+    background-color: #f9f9fc;
+}
+
+.markdownarea-header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 8px;
+    box-sizing: border-box;
+    background-color: #eaeaea;
+    font-size: 10px;
+}
+
+.copy-download-area{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-copy,
+.button-download{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border: none;
+    background-color: #eaeaea;
+    border-radius: var(--default-border-radius);
+    cursor: pointer;
+}
+
+.button-copy:hover,
+.button-download:hover{
+    background-color: #dfdfdf;
+}
+
+.button-copy svg,
+.button-download svg{
+    font-size: 14px;
+}
