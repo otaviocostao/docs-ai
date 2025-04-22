@@ -6,30 +6,60 @@ import GitHubArea from './GitHubArea/GitHubArea'; // Certifique-se que o caminho
 
 const UploadArea = () => {
   const [uploadType, setUploadType] = useState('file');
-  const [selectedLocalFile, setSelectedLocalFile] = useState(null); // Estado para guardar o arquivo vindo do UploadFile
+  const [selectedLocalFile, setSelectedLocalFile] = useState(null);
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadMessage, setUploadMessage] = useState('');
+  const [markdownResult, setMarkdownResult] = useState('');
 
   // Função que será passada para UploadFile
   // Esta função será chamada pelo UploadFile quando um arquivo for selecionado ou removido
   const handleFileSelected = (file) => {
-    console.log("Arquivo recebido/atualizado no UploadArea:", file);
     setSelectedLocalFile(file);
-    // Aqui você pode adicionar lógica futura, como:
-    // - Habilitar/desabilitar um botão de envio geral
-    // - Preparar dados para um formulário, etc.
+    setUploadMessage(''); // Limpa mensagens anteriores
+    setMarkdownResult(''); // Limpa resultado anterior ao selecionar novo arquivo
   };
 
   // Função para lidar com o envio (exemplo)
-  const handleFinalUpload = () => {
-    if (uploadType === 'file' && selectedLocalFile) {
-      console.log("Enviando arquivo:", selectedLocalFile);
-      // Lógica para fazer o upload do selectedLocalFile para o servidor
-      alert(`Iniciando upload de ${selectedLocalFile.name}`);
-    } else if (uploadType === 'github') {
-      // Lógica para lidar com o envio do link do GitHub (que viria de GitHubArea)
-      console.log("Enviando dados do GitHub...");
-      alert("Lógica de envio do GitHub a ser implementada.");
-    } else {
-      alert("Nenhum arquivo ou método válido selecionado para upload.");
+  const handleFinalUpload = async () => {
+    if (uploadType !== 'file' || !selectedLocalFile) {
+      alert("Nenhum arquivo .zip válido selecionado para upload.");
+      return;
+    }
+
+    setIsUploading(true);
+    setUploadMessage('Enviando arquivos...');
+    setMarkdownResult('');
+
+    const formData = new FormData(); 
+
+    // Backend ira esperar 'zipfile' como nome do parametro
+    formData.append('zipfile', selectedLocalFile, selectedLocalFile.name);
+
+    try {
+      const response = await fetch('/api/analyze', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (response.ok){
+        const markdownContent = result.markdownContent || result.content || result.text || '';
+        console.log('Análise bem-sucedida:', markdownContent);
+        setMarkdownResult(markdownContent); // Guarda o resultado Markdown
+        setUploadMessage('Análise concluída com sucesso!');
+      
+      } else {
+        const errorMessage = result.markdownContent || result.message || `Erro ${response.status}`;
+        console.error('Falha na análise:', response.status, errorMessage);
+        setUploadMessage(errorMessage);
+      }
+    } catch (error) {
+      console.error('Erro de rede ou na requisição:', error);
+      setUploadMessage(`Erro na comunicação: ${error.message}. Verifique a rede ou o servidor.`);
+      setMarkdownResult('');
+    } finally {
+      setIsUploading(false);
     }
   };
 
@@ -38,38 +68,45 @@ const UploadArea = () => {
     <div className='upload-area-container'> {/* Usei um nome diferente para evitar conflito com a classe interna se houver */}
       <div className='upload-area'>
         {/* Componente para escolher o modo de upload */}
-        <UploadMode onSelect={setUploadType} selected={uploadType} />
+        <UploadMode
+           onSelect={(type) => {
+               setUploadType(type);
+               setUploadMessage('');
+               setSelectedLocalFile(null);
+               setMarkdownResult(''); // Limpa resultado ao trocar de modo
+           }}
+           selected={uploadType}
+        />
 
         {/* Renderiza condicionalmente a área de upload de arquivo */}
         {uploadType === 'file' && (
-          <UploadFile
-            // Passa a função handleFileSelected como prop para UploadFile
-            // O nome da prop deve ser o mesmo que UploadFile espera (onFileSelect)
-            onFileSelect={handleFileSelected}
-          />
+          // Passa o estado `isUploading` para desabilitar interação se necessário
+          <UploadFile onFileSelect={handleFileSelected} />
         )}
 
-        {/* Renderiza condicionalmente a área de upload do GitHub */}
         {uploadType === 'github' && (
-          <GitHubArea
-            // Se GitHubArea precisar enviar dados para cá, use um padrão similar
-            // onGitHubDataChange={handleGitHubData}
-          />
-        )}
+          <GitHubArea />
+        )},
 
-         {/* Botão de Upload Geral (Exemplo) */}
-         {/* Você pode habilitá-lo apenas quando um arquivo/link for válido */}
-         {uploadType === "file" && 
-          <div className='upload-actions'>
-            <button
-              onClick={handleFinalUpload}
-              disabled={uploadType === 'file' && !selectedLocalFile /* Adicione outras condições de desabilitação se necessário */}
-              className='final-upload-button'
-            >
-              Gerar documentação
-            </button>
-          </div>
-         }
+
+        {/* Mensagem de Status/Erro/Sucesso */}
+        {uploadMessage && (
+            <div className={`upload-status-message ${uploadMessage.startsWith('Erro') ? 'error' : (markdownResult ? 'success' : 'info')}`}>
+                {uploadMessage}
+            </div>
+         )}
+
+        {uploadType === 'file' && (
+           <div className='upload-actions'>
+             <button
+               onClick={handleFinalUpload}
+               disabled={!selectedLocalFile || isUploading} // Desabilita se não houver arquivo ou se estiver enviando
+               className='final-upload-button'
+             >
+               {isUploading ? 'Enviando...' : 'Gerar documentação'} {/* Texto dinâmico no botão */}
+             </button>
+           </div>
+         )}
 
       </div>
     </div>
